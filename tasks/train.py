@@ -289,6 +289,8 @@ def evaluate(
         for k in val_scores.keys():
             val_scores[k] *= 100
         print(json.dumps(val_scores, indent=4))
+        with open(os.path.join(config.output_dir, f"scores_{eval_name}.json"), "w") as f:
+            json.dump(val_scores, f, indent=4)
     return val_scores
 
 
