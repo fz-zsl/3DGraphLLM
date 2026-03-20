@@ -214,7 +214,7 @@ def evaluate(
     cosine_scores, l2_distances = [], []
     save_preds = []
     logger.info(f"batch-size={val_loader.batch_size} length(#batches)={len(val_loader)}")
-    for i, batch in tqdm(enumerate(val_loader)):
+    for i, batch in tqdm(enumerate(val_loader), total=len(val_loader)):
         for k in batch.keys():
             if type(batch[k]) == torch.Tensor:
                 batch[k] = batch[k].to(device)
