@@ -286,6 +286,8 @@ def evaluate(
             val_scores = calc_scanrefer_location_score(save_preds, config)
         elif eval_name == "multi3dref_location":
             val_scores = calc_multi3dref_location_score(save_preds, config)
+        for k in val_scores.keys():
+            val_scores[k] *= 100
         print(json.dumps(val_scores, indent=4))
     return val_scores
 
